@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>目标伪类选择器target制作手风琴效果</title>
+	<style>
+		html,body,div,p,h2{
+			padding:0;
+			margin:0;
+		}
+		a{
+			text-decoration: none;
+			color:#333;
+		}
+		.accordion{
+			background:#fff;
+			color:#424242;
+			font: 12px Arial, Verdana,sans-serif;
+			margin:10px auto;
+			padding:10px;
+			width:500px;
+			border:1px solid #eee;
+		}
+		.accordion h2{
+			height:35px;
+			line-height:35px;
+			font-size:13px;
+			position:relative;
+		}
+		.accordion h2:before{
+			border:5px solid #fff;
+			border-color:#fff transparent transparent;
+			content:' ';
+			position:absolute;
+			right:10px;
+			top:15px;
+			width:0;
+		}
+		.accordion h2 a{
+			display:block;
+			background:#cecece;
+			color:#424242;
+			border-radius: 5px;
+			text-indent:10px;
+		}
+		.accordion :target h2 a,
+		.accordion h2 a:hover,
+		.accordion h2 a:active{
+			background:#2288dd;
+			color:#fff;
+		}
+		.accordion p{
+			height:0;
+			overflow:hidden;
+			transition:height 0.5s ease-in;
+		}
+		.accordion :target p{
+			height:100px;
+			overflow:hidden;
+		}
+		.accordion :target h2:before{
+			border-color:transparent transparent transparent #eee;
+		}
+	</style>
+</head>
+<body>
+	<div class="accordion">
+		<div class="menueItem" id="box1">
+			<h2><a href="#box1">Brand</a></h2>
+			<p>box1</p>
+		</div>
+		<div class="menueItem" id="box2">
+			<h2><a href="#box2">Promotion</a></h2>
+			<p>box2</p>
+		</div>
+		<div class="menueItem" id="box3">
+			<h2><a href="#box3">Event</a></h2>
+			<p>box2</p>
+		</div>
+	</div>
+</body>
+</html>
